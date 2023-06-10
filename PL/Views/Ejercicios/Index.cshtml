@@ -1,0 +1,112 @@
+﻿@model BL.Opcion
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <h2>Index</h2>
+    </div>
+
+    <div class="row">
+        @using (Html.BeginForm("Index", "Ejercicios", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+        {
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Opciones)
+
+                @Html.DropDownListFor(model => model.Id, new SelectList(Model.Opciones, "Id", "Name"), "Seleccione una opcion", new { @class = "form-control", @id = "ddlOpciones" })
+
+            </div>
+            <br />
+            <div class="col-md-3">
+                <input class="btn btn-success" type="submit" value="Agregar" />
+            </div>
+        }
+    </div>
+    <hr />
+
+
+    <div class="row" id="Opcion1">
+        @using (Html.BeginForm("Index", "Ejercicios", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Valor1)
+                @Html.TextBoxFor(model => model.Valor1, new { @class = "form-control" })
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Valor2)
+                @Html.TextBoxFor(model => model.Valor2, new { @class = "form-control" })
+            </div>
+            <br />
+            <div class="col-md-3">
+                <input class="btn btn-success" type="submit" value="Agregar" />
+            </div>
+            <br />
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.resultado)
+                @Html.TextBoxFor(model => model.resultado, new { @class = "form-control" })
+            </div>
+        }
+    </div>
+
+
+    <div class="row" id="Opcion2">
+        @using (Html.BeginForm("Index", "Ejercicios", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Valor1)
+                @Html.TextBoxFor(model => model.Valor1, new { @class = "form-control" })
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Valor2)
+                @Html.TextBoxFor(model => model.Valor2, new { @class = "form-control" })
+            </div>
+            <br />
+            <div class="col-md-3">
+                <input class="btn btn-success" type="submit" value="Agregar" />
+            </div>
+            <br />
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.resultado)
+                @Html.TextBoxFor(model => model.resultado, new { @class = "form-control" })
+            </div>
+        }
+    </div>
+
+
+    <div class="row" id="Opcion3">
+        @using (Html.BeginForm("Index", "Ejercicios", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Cadena)
+                @Html.TextBoxFor(model => model.Cadena, new { @class = "form-control" })
+            </div>
+            <br />
+            <div class="col-md-3">
+                <input class="btn btn-success" type="submit" value="Agregar" />
+            </div>
+            <br />
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.CadenaResultado)
+                @Html.TextBoxFor(model => model.CadenaResultado, new { @class = "form-control" })
+            </div>
+        }
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+
+    $('#ddlOpciones').change(function () {
+        var text = $(this).find('option:selected').text();
+        alert(text);
+        if (text == '#Opcion1') {
+            $('#Opcion1').show();
+            $('#Opcion2').hide();
+            $('#Opcion3').hide();
+        }
+    });
+</script>
